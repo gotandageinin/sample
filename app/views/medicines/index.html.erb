@@ -1,0 +1,5 @@
+<% @medicines.each do |medicine| %>
+  <%= div_for medicine do %>
+    <%= medicine.code %> <%= medicine.name %>
+  <% end %>
+<% end %>
