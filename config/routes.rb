@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'medicines/index'
+  resources :medicines, only: :index do
+    get :autocomplete_medicine_name, on: :collection
+  end
 
   get 'welcome/index'
 

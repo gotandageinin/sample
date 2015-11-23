@@ -1,2 +1,6 @@
 <h1>Welcome#index</h1>
-<p>Hello World!! <%= @furuta %></p>
+<%= form_tag '', method: :get do %>
+  <div class="form-group">
+    <%= autocomplete_field_tag 'medicine_name', params[:medicine_name] , autocomplete_medicine_name_medicines_path, class: 'form-control' %>
+  </div>
+<% end %>
