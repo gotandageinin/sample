@@ -7,10 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'csv'
 ActiveRecord::Base.transaction do
+  Medicine.delete_all
   CSV.foreach('db/y.csv', encoding: 'Shift_JIS:UTF-8') do |row|
     code = row[2]
     name = row[4]
     Medicine.create code: code, name: name
+    puts "#{code} #{name}"
+  end
+
+  Disease.delete_all
+  CSV.foreach('db/b_20151001.txt', encoding: 'Shift_JIS:UTF-8') do |row|
+    code = row[2]
+    name = row[5]
+    Disease.create code: code, name: name
     puts "#{code} #{name}"
   end
 end
