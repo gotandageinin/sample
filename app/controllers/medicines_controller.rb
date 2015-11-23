@@ -1,4 +1,5 @@
 class MedicinesController < ApplicationController
+  after_filter :set_access_control_headers
 
   autocomplete :medicine, :name, full: true
 
