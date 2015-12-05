@@ -22,4 +22,12 @@ ActiveRecord::Base.transaction do
     Disease.create code: code, name: name
     puts "#{code} #{name}"
   end
+
+  Intervention.delete_all
+  CSV.foreach('db/s.csv', encoding: 'Shift_JIS:UTF-8') do |row|
+    code = row[2]
+    name = row[4]
+    Intervention.create code: code, name: name
+    puts "#{code} #{name}"
+  end
 end

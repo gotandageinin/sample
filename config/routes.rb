@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     get :autocomplete_disease_name, on: :collection
   end
 
+  resources :interventions, only: :index do
+    get :autocomplete_intervention_name, on: :collection
+  end
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

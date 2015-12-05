@@ -1,0 +1,5 @@
+<% @interventions.each do |intervention| %>
+  <%= div_for intervention do %>
+    <%= intervention.code %> <%= intervention.name %>
+  <% end %>
+<% end %>
